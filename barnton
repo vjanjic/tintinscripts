@@ -1,0 +1,34 @@
+#action {perfectly formed and cooked} {
+	pulloutbaked;
+	#untick {bakeupdate};
+	#math {qty} {$qty-1};
+	#if {$qty>0} {
+	   buy $food;
+	   preparemix $food;
+	   #delay 15 {bake $food};
+	   #delay 330 {
+	   	  checkbaking; #ticker {bakeupdate} {checkbaking} {30}
+	   }
+	}
+}
+
+#alias bk {
+       #var food %1;
+       #var qty %2;
+       buy $food;
+       preparemix $food;
+       #delay 15 {bake $food};
+       #delay 330 {
+       	      checkbaking;
+	      #ticker {bakeupdate} {checkbaking} {30}
+       }
+}
+
+#alias lght {
+       loop 1 %2 {cnt} {lightenfood %1 $cnt}
+}
+
+
+
+
+

@@ -1,0 +1,13 @@
+#action {not in the water} {cast short}
+
+#action {pole tightens} {#delay 10 {playout short}}
+
+#action {goes lax} {#delay 10 {tug medium}}
+
+
+#alias {fsh} {
+       wield pole;
+       cast short;
+       #ticker fishtick {reelin medium} 22;
+}
+

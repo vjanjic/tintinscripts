@@ -1,0 +1,23 @@
+#alias {findwhale} {
+       #var direction %1;
+       sail $direction;
+       #ticker {findwhaleticker} {
+       	       #if {$direction=="west"} {
+	       	   #if {$shipPosX == 20} {
+		       #var direction {north};
+		       #var fromdirection {$direction};
+		   }
+	       }
+	       #if {$direction=="north"} {
+		       #if {$fromdirection=="west"} {#var direction "east"};
+		       #if {$fromdirection=="east"} {#var direction "west"};
+	       }
+	       #if {$direction=="east"} {
+	       	   #if {$shipPosX == 1} {
+		       #var direction {north};
+		       #var fromdirection {$direction};
+		   }
+	       }
+	       	       
+       } 20;
+}
